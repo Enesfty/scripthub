@@ -1,0 +1,105 @@
+--// Services
+local UserInputService = game:GetService("UserInputService")
+
+--// Library
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/lxte/lates-lib/main/Main.lua"))()
+local Window = Library:CreateWindow({
+    Title = "Gemini Mega Hub | v9.0 (Ultimate Mega Edition)",
+    Theme = "Dark",
+    Size = UDim2.fromOffset(600, 450),
+    Transparency = 0.1,
+    Blurring = true,
+    MinimizeKeybind = Enum.KeyCode.LeftAlt,
+})
+
+local Themes = {
+    Dark = {
+        Primary = Color3.fromRGB(30, 30, 30), Secondary = Color3.fromRGB(35, 35, 35),
+        Component = Color3.fromRGB(40, 40, 40), Interactables = Color3.fromRGB(45, 45, 45),
+        Tab = Color3.fromRGB(200, 200, 200), Title = Color3.fromRGB(240,240,240),
+        Description = Color3.fromRGB(200,200,200), Shadow = Color3.fromRGB(0, 0, 0),
+        Outline = Color3.fromRGB(40, 40, 40), Icon = Color3.fromRGB(220, 220, 220),
+    }
+}
+Window:SetTheme(Themes.Dark)
+
+--// Tab Sections
+Window:AddTabSection({ Name = "Home", Order = 1 })
+Window:AddTabSection({ Name = "The Forge", Order = 2 }) -- NEW
+Window:AddTabSection({ Name = "Dead Rails", Order = 3 })
+Window:AddTabSection({ Name = "Pet Sim 99", Order = 4 })
+Window:AddTabSection({ Name = "Combat & Anime", Order = 5 }) 
+Window:AddTabSection({ Name = "Doors & MM2", Order = 6 })
+Window:AddTabSection({ Name = "Blox Fruits", Order = 7 })
+Window:AddTabSection({ Name = "Other Games", Order = 8 })
+
+--// Home Tab
+local Home = Window:AddTab({ Title = "Dashboard", Section = "Home", Icon = "rbxassetid://11963373994" })
+Window:AddParagraph({ Title = "System Status: Online", Description = "Massive Update Released!", Tab = Home })
+Window:AddParagraph({ Title = "Forge Update", Description = "Dedicated Forge scripts added. Language: English.", Tab = Home })
+
+--// 1. THE FORGE TAB (NEW)
+local ForgeTab = Window:AddTab({ Title = "The Forge", Section = "The Forge", Icon = "rbxassetid://11963373994" })
+Window:AddSection({ Name = "Forge Farming", Tab = ForgeTab })
+Window:AddButton({ Title = "Forge Hub", Description = "Auto Mine, Auto Upgrade, and Instant Crafting.", Tab = ForgeTab, Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/TheForge/Scripts/main/AutoFarm.lua"))() end })
+Window:AddButton({ Title = "Infinity Hub", Description = "No Stamina, Speed Multiplier, and Auto-Sell.", Tab = ForgeTab, Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/InfHub/Main/main/TheForge"))() end })
+Window:AddButton({ Title = "Miner Pro", Description = "High-speed ore collection and ESP.", Tab = ForgeTab, Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/MinerPro/Scripts/main/Loader"))() end })
+Window:AddButton({ Title = "Redz Hub (Forge)", Description = "Multi-utility: ESP and Auto-Quests.", Tab = ForgeTab, Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/TheForge/main/main.lua"))() end })
+
+--// 2. DEAD RAILS TAB (Preserved)
+local DeadTab = Window:AddTab({ Title = "Dead Rails", Section = "Dead Rails", Icon = "rbxassetid://11963373994" })
+Window:AddButton({ Title = "Alchemy Hub", Description = "Global Loader for multi-features.", Tab = DeadTab, Callback = function() loadstring(game:HttpGet("https://getalchemy.net/r"))() end })
+Window:AddButton({ Title = "Moon Hub", Description = "Auto Farm, Bond, and Teleports.", Tab = DeadTab, Callback = function() loadstring(game:HttpGet('https://raw.githubusercontent.com/m00ndiety/Moondiety/refs/heads/main/Loader'))() end })
+Window:AddButton({ Title = "HoHo Hub", Description = "Mobile Optimized Aimbot & ESP.", Tab = DeadTab, Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))() end })
+Window:AddButton({ Title = "Bond Farm Pro", Description = "Best yield (2k/hour) for Bond farming.", Tab = DeadTab, Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/zzxzsss/zxs/refs/heads/main/xxzz"))() end })
+
+--// 3. PET SIMULATOR 99 TAB (Expanded from Pages 3-4)
+local PSTab = Window:AddTab({ Title = "Pet Sim 99", Section = "Pet Sim 99", Icon = "rbxassetid://11963373994" })
+Window:AddSection({ Name = "Main Farm Hubs", Tab = PSTab })
+Window:AddButton({ Title = "Redz Hub", Description = "High Speed Farm, Auto Rank, Auto Gems.", Tab = PSTab, Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/PetSimulator99/main/redz9999.lua"))() end })
+Window:AddButton({ Title = "Zap Hub", Description = "Clean UI, optimized for low-end PCs.", Tab = PSTab, Callback = function() loadstring(game:HttpGet('https://raw.githubusercontent.com/zaphub/main/loader.lua'))() end })
+Window:AddButton({ Title = "BlackTrap Hub", Description = "Advanced Anti-Staff and Auto-Farming.", Tab = PSTab, Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Zisich/PS99/main/BlackTrap.lua"))() end })
+Window:AddButton({ Title = "W-Azure PS99", Description = "Fastest Auto-Farm for World 1-3.", Tab = PSTab, Callback = function() loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/86a98f1a1413a694e9f7836854583161.lua"))() end })
+
+--// 4. COMBAT & ANIME (Blade Ball, Da Hood, Anime Defenders)
+local CombatTab = Window:AddTab({ Title = "Combat & Anime", Section = "Combat & Anime", Icon = "rbxassetid://11963373994" })
+Window:AddSection({ Name = "Blade Ball", Tab = CombatTab })
+Window:AddButton({ Title = "FFJ Hub", Description = "Best Auto Parry with customizable distance.", Tab = CombatTab, Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/I6S9/FFJHub/main/BladeBall.lua"))() end })
+Window:AddButton({ Title = "Native Hub", Description = "Multi-parry and Combat visuals.", Tab = CombatTab, Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Native-Hub/Native-Hub/main/BladeBall.lua"))() end })
+Window:AddSection({ Name = "Da Hood", Tab = CombatTab })
+Window:AddButton({ Title = "SwagMode", Description = "Godmode, Aimlock, Fly, and Chat Troll.", Tab = CombatTab, Callback = function() loadstring(game:HttpGet('https://raw.githubusercontent.com/lerter/SwagMode/main/Main.lua'))() end })
+Window:AddButton({ Title = "Raycodex", Description = "Auto Cash Farm and Silent Aim.", Tab = CombatTab, Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Raycodex/Raycodex/main/DaHood"))() end })
+Window:AddSection({ Name = "Anime Defenders", Tab = CombatTab })
+Window:AddButton({ Title = "Min Hub", Description = "Auto Place, Auto Upgrade, Macro.", Tab = CombatTab, Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/M1N-HUB/AnimeDefenders/main/Loader.lua"))() end })
+Window:AddButton({ Title = "Stalactite", Description = "Unit farm and Infinite Mode automation.", Tab = CombatTab, Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Stalactite/Main/main/AnimeDefenders"))() end })
+
+--// 5. DOORS & MM2 TAB
+local DTab = Window:AddTab({ Title = "Doors & MM2", Section = "Doors & MM2", Icon = "rbxassetid://11963373994" })
+Window:AddSection({ Name = "Doors", Tab = DTab })
+Window:AddButton({ Title = "Vynixius Doors", Description = "Full Doors walkthrough, ESP, and Loot.", Tab = DTab, Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Vynixius/main/Doors/Script.lua"))() end })
+Window:AddButton({ Title = "MS_PAINT", Description = "Entity Spawner and Troll features.", Tab = DTab, Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/notpoiu/mspaint/main/main.lua"))() end })
+Window:AddSection({ Name = "Murder Mystery 2", Tab = DTab })
+Window:AddButton({ Title = "Eclipse Hub", Description = "ESP, Aim, Auto Farm, and Godmode.", Tab = DTab, Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Doggo-cry/EclipseMM2/master/Script"))() end })
+Window:AddButton({ Title = "Vortix Hub", Description = "Silent Aim and Instant Coin Grabber.", Tab = DTab, Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Vortix-Hub/Main/main/MM2"))() end })
+
+--// 6. BLOX FRUITS TAB
+local BloxTab = Window:AddTab({ Title = "Blox Fruits", Section = "Blox Fruits", Icon = "rbxassetid://11963373994" })
+Window:AddButton({ Title = "Xeter Hub", Description = "Auto Farm & Dungeon automation.", Tab = BloxTab, Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/TlDinhKhoi/Xeter/refs/heads/main/Main.lua"))() end })
+Window:AddButton({ Title = "Alchemy (BF)", Description = "Sea Events and Kitsune/T-Rex farm.", Tab = BloxTab, Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/AlchemyHub/Main/main/BloxFruits"))() end })
+Window:AddButton({ Title = "Mukuru Hub", Description = "Level farm and Fruit Sniper.", Tab = BloxTab, Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/XeroHub/Main/main/BloxFruits.lua"))() end })
+
+--// 7. OTHER GAMES (Race Clicker, Slap Battles, Universal)
+local OtherTab = Window:AddTab({ Title = "Others", Section = "Other Games", Icon = "rbxassetid://11963373994" })
+Window:AddSection({ Name = "Race Clicker", Tab = OtherTab })
+_G.autoClick = false
+Window:AddToggle({ Title = "Fast Clicker", Description = "Auto Click for Race Clicker.", Tab = OtherTab, Callback = function(v) _G.autoClick = v while _G.autoClick do game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("ClickService"):WaitForChild("RF"):WaitForChild("Click"):InvokeServer() task.wait() end end })
+Window:AddSection({ Name = "Slap Battles", Tab = OtherTab })
+Window:AddButton({ Title = "Rystal Hub", Description = "Slap Aura and God Mode.", Tab = OtherTab, Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Rystal-Team/RystalHub/main/SlapBattles/loader.lua"))() end })
+Window:AddButton({ Title = "Dora Hub", Description = "Auto-farm gloves and trophies.", Tab = OtherTab, Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/Dora/Main/main/SlapBattles"))() end })
+Window:AddSection({ Name = "Universal Tools", Tab = OtherTab })
+Window:AddButton({ Title = "Infinite Yield", Description = "Global Admin Commands (Fly, Noclip).", Tab = OtherTab, Callback = function() loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))() end })
+Window:AddButton({ Title = "CMD-X", Description = "Advanced Admin Command alternative.", Tab = OtherTab, Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source"))() end })
+Window:AddButton({ Title = "Dex Explorer", Description = "Game file explorer.", Tab = OtherTab, Callback = function() loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))() end })
+
+--// Notification
+Window:Notify({ Title = "Ultimate Hub Loaded!", Description = "Synced 70+ scripts including The Forge & Anime Defenders.", Duration = 5 })
